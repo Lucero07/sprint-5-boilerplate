@@ -38,15 +38,15 @@ var listarTemas = function () {
 
  };
 
- var imprimirFiltrado = function(temas) {
-   var todosLosTemas="";
-   console.log(temas);
-   (function(tema){
-     todosLosTemas+= estructuraHtml.replace("__autor-tema__", autor).replace("__contenido-tema__",contenido).replace(/__id__/g,identificador).replace(/__cabezera__/g,cabezera);
-    $temasForo.append(plantillaTema);
-   }
- );
-  $("#accordion").html(todosLosTemas);
+ var imprimirFiltrado = function(tema) {
+   var autor = tema.author_name;
+   var contenido = tema.content;
+   var identificador =tema.id;
+   var cabezera = "cabezera"+identificador;
+    var plantillaTema = estructuraHtml.replace("__autor-tema__", autor).replace("__contenido-tema__",contenido).replace(/__id__/g,identificador).replace(/__cabezera__/g,cabezera);
+    $temasForo.html(plantillaTema);
+
+  // $("#accordion").html(todosLosTemas);
     };
 
 
